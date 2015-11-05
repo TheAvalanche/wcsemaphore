@@ -1,0 +1,99 @@
+@font-face {
+    font-family: "Tele2Slab";
+    src: url("../fonts/Tele2Slab-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Tele2Slab";
+    font-weight: bold;
+    src: url("../fonts/Tele2Slab-Bold.otf") format("opentype");
+}
+
+body {
+    font-family: "Tele2Slab", serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+
+
+#view-1, #view-2, #view-3 {
+    position: relative;
+    background-color: white;
+    width: 1600px;
+    border-radius: 30px;
+    height: 500px;
+    padding: 20px;
+    margin: auto;
+    top: 150px;
+}
+
+.page1, .page2, .page3 {
+    text-align: center;
+}
+
+.opened {
+    -webkit-animation: blink 2s infinite;
+    -moz-animation: blink 2s infinite;
+    animation: blink 2s infinite;
+}
+
+.opened:after {
+    content: url('../image/opened2.png');
+}
+
+.closed {
+    -webkit-animation: pulse 1s infinite;
+    -moz-animation: pulse 1s infinite;
+    animation: pulse 1s infinite;
+}
+
+.closed:after {
+    content: url('../image/closed2.png');
+}
+
+@-webkit-keyframes blink{
+
+    0%{ opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
+}
+
+@-moz-keyframes blink{
+
+    0%{ opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
+
+}
+
+@keyframes blink{
+
+    0%{ opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
+
+}
+
+@-webkit-keyframes pulse{
+
+    0% {-webkit-transform: scale(0.8, 0.8);}
+    50% {-webkit-transform: scale(1, 1);}
+    100% {-webkit-transform: scale(0.8, 0.8);}
+}
+
+@-moz-keyframes pulse{
+
+    0% {-webkit-transform: scale(0.8, 0.8);}
+    50% {-webkit-transform: scale(1, 1);}
+    100% {-webkit-transform: scale(0.8, 0.8);}
+
+}
+
+@keyframes pulse{
+
+    0% {-webkit-transform: scale(0.8, 0.8);}
+    50% {-webkit-transform: scale(1, 1);}
+    100% {-webkit-transform: scale(0.8, 0.8);}
+
+}
