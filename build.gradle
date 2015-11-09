@@ -1,6 +1,7 @@
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'io.ratpack.ratpack-groovy'
 
 buildscript {
     repositories {
@@ -8,6 +9,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+        classpath 'io.ratpack:ratpack-gradle:1.1.1'
     }
 }
 
@@ -24,6 +26,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-logging'
     compile 'com.google.guava:guava:18.0'
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'io.ratpack:ratpack-core:1.1.1'
+    compile 'io.ratpack:ratpack-spring-boot:1.1.1'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
