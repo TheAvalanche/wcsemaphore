@@ -79,6 +79,15 @@ ratpack {
             context.response.status(Status.OK).send("Ok")
         }
 
+        get ("freeOnFloor/:floor") {
+            def floorNumber = pathTokens.floor
+            assert floorNumber != null
+            def freeWcs =  wcStatuses.findAll { wcDetail ->
+                wcDetail.id.startsWith("wc$floorNumber") && wcDetail.status == opened
+        }
+            render ("Total amount of free wc on $floorNumber floor ${freeWcs.size()}")
+
+        }
         files { 'public' }
     }
 
