@@ -39,7 +39,7 @@ body {
 }
 
 .opened:after {
-    content: url('../image/opened2.png');
+    content: url('../image/opened.png');
 }
 
 .closed {
@@ -49,7 +49,7 @@ body {
 }
 
 .closed:after {
-    content: url('../image/closed2.png');
+    content: url('../image/closed.png');
 }
 
 @-webkit-keyframes blink{
