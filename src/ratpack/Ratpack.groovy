@@ -1,4 +1,7 @@
 import com.tele2.semaphore.WcDetails
+import ratpack.exec.Promise
+import ratpack.form.Form
+import ratpack.http.Status
 import ratpack.jackson.Jackson
 
 import static com.tele2.semaphore.WcDetails.WcStatus.busy
@@ -14,8 +17,7 @@ ratpack {
             render "Hello"
         }
 
-        get(":id") {
-
+        get("wcdetails/:id") {
 
             def wcDetails = wcStatuses.find { wcDetail ->
                 wcDetail.id == pathTokens.id
@@ -23,12 +25,23 @@ ratpack {
             render Jackson.json(wcDetails)
         }
 
-        post ("occupy/:id"){
+        post ("/occupy/:id"){
+
             def wcDetailsToOccupy = wcStatuses.find { wcDetails ->
                 wcDetails.id == pathTokens.id
             }
-            wcDetailsToOccupy.status = busy
+            assert wcDetailsToOccupy != null
+            wcDetailsToOccupy?.status = busy
+            context.response.status(Status.OK)
 
+        }
+        post ("release/:id") {
+            def wcDetailsToRelease = wcStatuses.find { wcDetails ->
+                wcDetails.id == pathTokens.id
+            }
+            assert wcDetailsToRelease != null
+            wcDetailsToRelease?.status = free
+            context.response.status(Status.OK)
         }
 
         files { 'public' }
