@@ -45,7 +45,7 @@ ratpack {
     handlers {
 
         get {
-            render "Hello"
+            redirect('public/index.html')
         }
 
         get("wcdetails/:id") {
