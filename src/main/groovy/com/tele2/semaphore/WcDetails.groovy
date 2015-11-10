@@ -5,7 +5,7 @@ class WcDetails {
     WcStatus status
 
     enum WcStatus {
-        free,
-        busy
+        opened,
+        closed
     }
 }

@@ -19,22 +19,20 @@ $(".main").onepage_scroll({
 
 function doAsyncThing() {
     $.ajax({
-        url: "example.json",
+        url: "../wcdetails/",
         success: function (data) {
-            for (var key in data.wc) {
-                var obj = data.wc[key];
+            for (var key in data) {
+                var obj = data[key];
                 $("#" + obj.id).removeClass();
                 $("#" + obj.id).addClass(obj.status);
             }
+        },
+        complete: function () {
+            setTimeout(function () {
+                doAsyncThing();
+            }, 1000);
         }
     });
 }
 
-function ajax_response(response) {
-    return function (params) {
-        params.success(response);
-    };
-}
-
-$.ajax = ajax_response({"wc" : [{"id":"wc1-1","status":"closed"}, {"id":"wc1-2","status":"opened"}, {"id":"wc1-3","status":"closed"}]});
 doAsyncThing();
